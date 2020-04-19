@@ -1,0 +1,7 @@
+text {
+    pointer-events: none;
+}
+
+path {
+    cursor: pointer;
+}
