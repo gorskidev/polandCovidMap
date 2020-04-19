@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/polandCovidMap/static/css/main.0a78fead.chunk.css",
-    "main.js": "/polandCovidMap/static/js/main.3cfbcd01.chunk.js",
-    "main.js.map": "/polandCovidMap/static/js/main.3cfbcd01.chunk.js.map",
+    "main.css": "/polandCovidMap/static/css/main.8fd24352.chunk.css",
+    "main.js": "/polandCovidMap/static/js/main.ff46d719.chunk.js",
+    "main.js.map": "/polandCovidMap/static/js/main.ff46d719.chunk.js.map",
     "runtime-main.js": "/polandCovidMap/static/js/runtime-main.386c1cb1.js",
     "runtime-main.js.map": "/polandCovidMap/static/js/runtime-main.386c1cb1.js.map",
     "static/js/2.dbf2c983.chunk.js": "/polandCovidMap/static/js/2.dbf2c983.chunk.js",
     "static/js/2.dbf2c983.chunk.js.map": "/polandCovidMap/static/js/2.dbf2c983.chunk.js.map",
     "index.html": "/polandCovidMap/index.html",
-    "precache-manifest.5af9e64e6955bd07a8bdbf5821da9638.js": "/polandCovidMap/precache-manifest.5af9e64e6955bd07a8bdbf5821da9638.js",
+    "precache-manifest.17704c34fad0b9e10d77b2fab11a5ae7.js": "/polandCovidMap/precache-manifest.17704c34fad0b9e10d77b2fab11a5ae7.js",
     "service-worker.js": "/polandCovidMap/service-worker.js",
-    "static/css/main.0a78fead.chunk.css.map": "/polandCovidMap/static/css/main.0a78fead.chunk.css.map",
+    "static/css/main.8fd24352.chunk.css.map": "/polandCovidMap/static/css/main.8fd24352.chunk.css.map",
     "static/js/2.dbf2c983.chunk.js.LICENSE.txt": "/polandCovidMap/static/js/2.dbf2c983.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.386c1cb1.js",
     "static/js/2.dbf2c983.chunk.js",
-    "static/css/main.0a78fead.chunk.css",
-    "static/js/main.3cfbcd01.chunk.js"
+    "static/css/main.8fd24352.chunk.css",
+    "static/js/main.ff46d719.chunk.js"
   ]
 }
