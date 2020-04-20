@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3de9ccde27bc31447aa4dd46ff6dc914",
+    "revision": "41cc7f231bdbbfc1907bef878f891d99",
     "url": "/polandCovidMap/index.html"
   },
   {
-    "revision": "d300dd3a107dd907c918",
+    "revision": "36c2f3d0b1b8ea0d2ee2",
     "url": "/polandCovidMap/static/css/main.8fd24352.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/polandCovidMap/static/js/2.dbf2c983.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d300dd3a107dd907c918",
-    "url": "/polandCovidMap/static/js/main.ff46d719.chunk.js"
+    "revision": "36c2f3d0b1b8ea0d2ee2",
+    "url": "/polandCovidMap/static/js/main.654e5a54.chunk.js"
   },
   {
     "revision": "def18c8d03a36e6dca63",
