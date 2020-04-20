@@ -17,67 +17,67 @@ class App extends React.Component {
       comparison_death_cases: false,
       stats: {
           podkarpackie: {
-              infected: 259,
-              death_cases: 15
-          },
-          malopolskie: {
-              infected: 630,
+              infected: 263,
               death_cases: 16
           },
+          malopolskie: {
+              infected: 672,
+              death_cases: 17
+          },
           slaskie: {
-              infected: 1273,
-              death_cases: 69
+              infected: 1496,
+              death_cases: 74
           },
           dolnoslaskie: {
-              infected: 949,
+              infected: 1065,
               death_cases: 30
           },
           opolskie: {
-              infected: 271,
-              death_cases: 13
+              infected: 292,
+              death_cases: 14
           },
           swietokrzyskie: {
-              infected: 203,
+              infected: 214,
               death_cases: 4
           },
           lubelskie: {
-              infected: 293,
+              infected: 311,
               death_cases: 10
           },
           lodzkie: {
-              infected: 640,
+              infected: 660,
               death_cases: 10
           },
           mazowieckie: {
-              infected: 1936,
-              death_cases: 107
+              infected: 1992,
+              death_cases: 108
           },
           wielkopolskie: {
-              infected: 880,
-              death_cases: 49
+              infected: 1034,
+              death_cases: 53
           },
           lubuskie: {
               infected: 81,
               death_cases: 0
           },  
           kujawsko_pomorskie: {
-              infected: 398,
+              infected: 421,
               death_cases: 16
           },
           podlaskie: {
-              infected: 316,
+              infected: 324,
               death_cases: 3
           },
           zachodnio_pomorskie: {
-              infected: 249,
-              death_cases: 2
+              infected: 274,
+              death_cases: 4
           },
           warminsko_mazurskie: {
-              infected: 139,
+              infected: 143,
               death_cases: 1
           },
           pomorskie: {
-              infected: 207,
+              infected: 211,
               death_cases: 2
           },
       }

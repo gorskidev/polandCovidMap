@@ -39,17 +39,17 @@ class StatsDisplay extends React.Component {
     }
 
     toUpperCaseUpgraded(string, char) {
-        if (string == "malopolskie") {
+        if (string === "malopolskie") {
             string = "małopolskie"
-        } else if (string == "slaskie") {
+        } else if (string === "slaskie") {
             string = "śląskie"
-        } else if (string == "dolnoslaskie") {
+        } else if (string === "dolnoslaskie") {
             string = "dolnośląskie"
-        } else if (string == "lodzkie") {
+        } else if (string === "lodzkie") {
             string = "łódzkie"
-        } else if (string == "warminsko-mazurskie") {
+        } else if (string === "warminsko-mazurskie") {
             string = "warmińsko-mazurskie"
-        } else if (string == "swietokrzyskie") {
+        } else if (string === "swietokrzyskie") {
             string = "świętokrzyskie"
         }
 

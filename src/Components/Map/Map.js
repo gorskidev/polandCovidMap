@@ -7,7 +7,9 @@ class Map extends React.Component {
         super(props)
         this.state = {
             comparison_infected: false,
-            comparison_death_causes: false
+            comparison_death_causes: false,
+            clicks: 0,
+            prevSelected: []
         }
 
         this.onMouseOverHandler = this.onMouseOverHandler.bind(this)
@@ -30,6 +32,38 @@ class Map extends React.Component {
 
     onMouseClickHandler(e) {
         this.props.addToSelected(e.target.id)
+        let prevSelected = []
+
+        const select = () => {
+            this.setState({
+                clicks: this.state.clicks + 1
+            })
+    
+            if (this.state.clicks > 1) {
+                document.getElementById(this.state.prevSelected[0]).setAttribute("fill", this.setColor("infected", [this.state.prevSelected[0]]))
+                document.getElementById(this.state.prevSelected[1]).setAttribute("fill", this.setColor("infected", [this.state.prevSelected[1]]))
+                this.setState({
+                    clicks: 1
+                })
+            }
+    
+            if (this.props.selected.length > 0) {
+                if (this.props.selected.length === 1) {
+                    document.getElementById(this.props.selected[0]).setAttribute("fill", "#8C0E0E")
+                }
+    
+                if (this.props.selected.length === 2) {
+                    document.getElementById(this.props.selected[1]).setAttribute("fill", "#8C0E0E")
+                    prevSelected.push(this.props.selected[0], this.props.selected[1])
+                    this.setState({
+                        prevSelected: prevSelected
+                    })
+
+                }
+            } 
+        }
+        
+        select()
         this.compare("infected")
         this.compare("death_cases")
     }
@@ -39,52 +73,79 @@ class Map extends React.Component {
         if (selected.length >= 2) {
             const compared = Math.abs(stats[selected[0]][property] - stats[selected[1]][property])
 
-            if(property == 'infected') {
+            if(property === 'infected') {
                 this.props.setComparisonInfected(compared)
             }
 
-            if (property == 'death_cases') {
+            if (property === 'death_cases') {
                 this.props.setComparisonDeathCases(compared)
             }
         }
       }
 
-    setColor() {
-        const statsLen = Object.keys(this.props.stats).length
-        const ObjKeys = Object.keys(this.props.stats)
+    setColor(key, propertyName) {
+        const { stats } = this.props
 
+        
         const pickColor = () => {
-            
+            const defaulValue = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+            const multiplier = 10
+
+            if (propertyName && key) {
+                if (stats[propertyName][key] > defaulValue[0]*multiplier && stats[propertyName][key] < defaulValue[1]*multiplier) {
+                    return "rgb(191, 212, 245)"
+                }  else if (stats[propertyName][key] > defaulValue[1]*multiplier && stats[propertyName][key] < defaulValue[2]*multiplier) {
+                    return "rgb(158, 181, 217)"
+                }  else if (stats[propertyName][key] > defaulValue[2]*multiplier && stats[propertyName][key] < defaulValue[3]*multiplier) {
+                    return "rgb(128, 154, 196)"
+                }  else if (stats[propertyName][key] > defaulValue[3]*multiplier && stats[propertyName][key] < defaulValue[4]*multiplier) {
+                    return "rgb(95, 129, 184)"
+                }  else if (stats[propertyName][key] > defaulValue[4]*multiplier && stats[propertyName][key] < defaulValue[5]*multiplier) {
+                    return "rgb(62, 99, 158)"
+                }  else if (stats[propertyName][key] > defaulValue[5]*multiplier && stats[propertyName][key] < defaulValue[6]*multiplier) {
+                    return "rgb(39, 72, 125)"
+                }  else if (stats[propertyName][key] > defaulValue[6]*multiplier && stats[propertyName][key] < defaulValue[7]*multiplier) {
+                    return "rgb(20, 50, 99)"
+                }  else if (stats[propertyName][key] > defaulValue[7]*multiplier && stats[propertyName][key] < defaulValue[8]*multiplier) {
+                    return "rgb(11, 38, 82)"
+                }  else if (stats[propertyName][key] > defaulValue[8]*multiplier && stats[propertyName][key] < defaulValue[9]*multiplier) {
+                    return "rgb(9, 25, 70)"
+                }  else if (stats[propertyName][key] > defaulValue[9]*multiplier) {
+                    return "rgb(1, 15, 38)"
+                } 
+            }
         }
 
-        for (const property in this.props.stats) {
-            if (this.props.stats[property].infected > 0 && this.props.stats[property].infected < 100) {
+        for (const property in stats) {
+            if (stats[property][key] > 0 && stats[property][key] < 100) {
                 document.querySelector(`#${property}`).setAttribute('fill', "rgb(191, 212, 245)")
-            } else if (this.props.stats[property].infected > 100 && this.props.stats[property].infected < 200) {
-                document.querySelector(`#${property}`).setAttribute('fill', "rgb(158, 181, 217")
-            } else if (this.props.stats[property].infected > 200 && this.props.stats[property].infected < 300) {
+            } else if (stats[property][key] > 100 && stats[property][key] < 200) {
+                document.querySelector(`#${property}`).setAttribute('fill', "rgb(158, 181, 217)")
+            } else if (stats[property][key] > 200 && stats[property][key] < 300) {
                 document.querySelector(`#${property}`).setAttribute('fill', "rgb(128, 154, 196)")
-            } else if (this.props.stats[property].infected > 300 && this.props.stats[property].infected < 400) {
+            } else if (stats[property][key] > 300 && stats[property][key] < 400) {
                 document.querySelector(`#${property}`).setAttribute('fill', "rgb(95, 129, 184)")
-            } else if (this.props.stats[property].infected > 400 && this.props.stats[property].infected < 500) {
+            } else if (stats[property][key] > 400 && stats[property][key] < 500) {
                 document.querySelector(`#${property}`).setAttribute('fill', "rgb(62, 99, 158)")
-            } else if (this.props.stats[property].infected > 500 && this.props.stats[property].infected < 600) {
+            } else if (stats[property][key] > 500 && stats[property][key] < 600) {
                 document.querySelector(`#${property}`).setAttribute('fill', "rgb(39, 72, 125)")
-            } else if (this.props.stats[property].infected > 600 && this.props.stats[property].infected < 700) {
+            } else if (stats[property][key] > 600 && stats[property][key] < 700) {
                 document.querySelector(`#${property}`).setAttribute('fill', "rgb(20, 50, 99)")
-            } else if (this.props.stats[property].infected > 700 && this.props.stats[property].infected < 800) {
+            } else if (stats[property][key] > 700 && stats[property][key] < 800) {
                 document.querySelector(`#${property}`).setAttribute('fill', "rgb(11, 38, 82)")
-            } else if (this.props.stats[property].infected > 800 && this.props.stats[property].infected < 900) {
-                document.querySelector(`#${property}`).setAttribute('fill', "rgb(11, 38, 82)")
-            } else if (this.props.stats[property].infected > 900) {
+            } else if (stats[property][key] > 800 && stats[property][key] < 900) {
+                document.querySelector(`#${property}`).setAttribute('fill', "rgb(9, 25, 70)")
+            } else if (stats[property][key] > 900) {
                 document.querySelector(`#${property}`).setAttribute('fill', "rgb(1, 15, 38)")
             } 
         }
+
+        return pickColor()
     }
 
     componentDidMount() {
-        this.setColor()
-
+        this.setColor("infected")
+        console.log(this.setColor("infected", "mazowieckie"))
         const handleResize = () => {
             const svgBox = document.getElementById("svgBox")
             console.log(window.outerWidth)
@@ -96,12 +157,14 @@ class Map extends React.Component {
                 svgBox.setAttribute("width", "497")
             }
         }
-
         
         window.addEventListener('resize', handleResize)
         
-        
         handleResize()
+
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
     }
 
     render() {
